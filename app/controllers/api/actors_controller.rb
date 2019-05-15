@@ -13,7 +13,12 @@ class Api::ActorsController < ApplicationController
                           gender: params[:gender]
                           )
     @actor.save
-    render "show.json.jbuilder"
+
+    if @actor.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end  
   end
 
   def show
@@ -32,7 +37,12 @@ class Api::ActorsController < ApplicationController
 
 
     @actor.save
-    render "show.json.jbuilder"
+
+    if @actor.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
