@@ -1,5 +1,7 @@
 class Movie < ApplicationRecord
 
+  has_many :actors
+
   validates :title, uniqueness: true
   validates :director, presence: true
   validates :year, numericality: { only_integer: true }
