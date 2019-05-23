@@ -53,3 +53,5 @@ gem 'rack-cors'
 group :development, :test do
   gem 'ffaker'
 end
+
+gem 'jwt'
